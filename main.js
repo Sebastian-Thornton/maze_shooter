@@ -1,6 +1,15 @@
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 
+await window.CrazyGames.SDK.init();
+
+let level_data
+
+const response = await fetch('./public/level_data.json');
+level_data = await response.json();
+
+console.log(level_data);
+
 var createScene = function () {
   var scene = new BABYLON.Scene(engine);
 
